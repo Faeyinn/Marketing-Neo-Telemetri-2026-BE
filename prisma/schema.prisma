@@ -14,16 +14,21 @@ datasource db {
 }
 
 model Project {
-  id             String   @id @default(uuid())
-  name           String
-  slug           String   @unique
-  description    String
-  photo          String?
-  techStack      String[]
-  linkProject    String?
-  linkRepo       String?
-  category       String[]
-  completionDate DateTime
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id           String   @id @default(uuid())
+  name         String
+  slug         String   @unique
+  description  String
+  coverImage   String?
+  division     String
+  creationDate DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
